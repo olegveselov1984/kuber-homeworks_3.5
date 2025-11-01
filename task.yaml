@@ -10,11 +10,11 @@ items:
     metadata:
       name: data
 ---
-apiVersion: v1
-kind: ConfigMap
-metadata:  
-  name: coredns-custom  
-  namespace: data
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:  
+#   name: coredns-custom  
+#   namespace: data
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,7 +35,7 @@ spec:
       - command:
         - sh
         - -c
-        - while true; do curl 10.152.183.54; sleep 5; done #auth-db
+        - while true; do curl 10.152.183.54; sleep 5; done #auth-db auth-db.data auth-db.data.svc.cluster.local auth-db.web.svc.cluster.local
         image: radial/busyboxplus:curl
         name: busybox
 ---
